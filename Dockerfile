@@ -10,4 +10,4 @@ RUN apk add maven
 # Bundle app source
 COPY . .
 
-CMD [ "mvn", "clean install" ]
+Run mvn clean install
