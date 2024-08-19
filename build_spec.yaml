@@ -72,7 +72,7 @@ steps:
     timeoutInSeconds: 1200
     name: "Build container image"
     command: |
-      cd ${OCI_WORKSPACE_DIR}/OCI_DevOps_Java
+      cd ${OCI_WORKSPACE_DIR}/github_OCI-DevOps-Java
       docker build --pull --rm -t oci_devops_java_app .
 
 outputArtifacts:
