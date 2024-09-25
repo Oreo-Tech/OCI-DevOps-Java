@@ -21,6 +21,26 @@ spec:
           ports:
             - containerPort: 8890
               protocol: TCP
+          volumeMounts:
+            - name: logs
+              mountPath: /mnt/log
+        - name: logging
+          image: fluent/fluent-bit
+          resources:
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          volumeMounts:
+            - name: logs
+              mountPath: /mnt/log
+            - name: fluentbit-config
+              mountPath: /fluent-bit/etc
+      volumes:
+        - name: logs
+          emptyDir: {}
+        - name: fluentbit-config
+          configMap:
+            name: fluentbit-config-devops
 ---
 apiVersion: v1
 kind: Service
