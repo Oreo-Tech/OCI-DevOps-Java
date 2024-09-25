@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oci-devops-deployment
+spec:
+  selector:
+    matchLabels:
+      app: java-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: java-app
+    spec:
+      containers:
+        - name: java-app
+          image: iad.ocir.io/sehubjapaciaas/oci_devops_java_app:${BUILDRUN_HASH}
+          command: ["java"]
+          args: ["-jar", "target/hello-0.0.1-SNAPSHOT.jar"]
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8890
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-app-service
+  annotations: 
+    service.beta.kubernetes.io/oci-load-balancer-shape: "10Mbps"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8890
+  selector:
+    app: java-app
