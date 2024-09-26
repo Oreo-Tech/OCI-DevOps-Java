@@ -1,14 +1,185 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
-
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Getting Started: Serving Web Content</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supremo Bank - User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #003366; /* Dark Blue */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative; /* Position relative for absolute positioning of logout button */
+        }
+        h1 {
+            margin: 0;
+        }
+        .logout-btn {
+            position: absolute; /* Position absolute to place it in the right corner */
+            right: 20px; /* Distance from the right edge */
+            top: 20px; /* Distance from the top edge */
+            display: inline-block; /* Make it behave like a button */
+            background-color: #ffcc00; /* Yellow */
+            padding: 10px 20px;
+            color: #003366; /* Dark Blue */
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none; /* Remove underline */
+        }
+        .logout-btn:hover {
+            background-color: #e6b800; /* Darker Yellow */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .welcome-message {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            text-align: center;
+        }
+        .summary {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .summary-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex-basis: calc(33% - 20px);
+            text-align: center;
+        }
+        .bank-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .option {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex-basis: calc(33% - 20px);
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #003366; /* Dark Blue */
+            color: white;
+        }
+    </style>
 </head>
 <body>
-   <p th:text="|Hello ${name}|"></p>
-   <H1>Testing Application with version 5</H1>
-   <p>Go to Home Page <a href="/hello">Home</a></p>
-</body>
+<header>
+    <h1>Supremo Bank</h1>
+    <!-- Logout Button aligned to the right corner -->
+    <a href="/hello" class="logout-btn">Logout</a> <!-- Link to the homepage or logout action -->
+</header>
 
+<div class="container">
+    <div class="welcome-message">
+        <h2 id="welcomeUser">Welcome to Your Dashboard</h2> <!-- Dynamic welcome message -->
+        <p>Here are your banking options:</p>
+    </div>
+
+    <div class="summary">
+        <div class="summary-box">
+            <h3>Account Balance</h3>
+            <p>$5,000.00</p> <!-- Dynamic balance data -->
+            <a href="#" class="login-btn">View Details</a>
+        </div>
+
+        <div class="summary-box">
+            <h3>Recent Transactions</h3>
+            <p>Last Transaction: $150.00 on Grocery Store</p> <!-- Dynamic transaction data -->
+            <a href="#" class="login-btn">View All</a>
+        </div>
+
+        <div class="summary-box">
+            <h3>Offers & Promotions</h3>
+            <p>Get a bonus of $100 when you open a new savings account!</p> <!-- Dynamic offer data -->
+            <a href="#" class="login-btn">Learn More</a>
+        </div>
+    </div>
+
+    <div class="bank-options">
+        <div class="option">
+            <h3>Account Overview</h3>
+            <p>View your account balances and recent transactions.</p>
+            <a href="#" class="login-btn">View Account</a>
+        </div>
+
+        <div class="option">
+            <h3>Transfer Funds</h3>
+            <p>Send money to friends or family easily.</p>
+            <a href="#" class="login-btn">Transfer Money</a>
+        </div>
+
+        <div class="option">
+            <h3>Pay Bills</h3>
+            <p>Easily manage and pay your bills online.</p>
+            <a href="#" class="login-btn">Pay Bills</a>
+        </div>
+
+        <div class="option">
+            <h3>Apply for Loans</h3>
+            <p>Get started on your loan application today.</p>
+            <a href="#" class="login-btn">Apply Now</a>
+        </div>
+
+        <div class="option">
+            <h3>Investment Options</h3>
+            <p>Explore investment opportunities to grow your wealth.</p>
+            <a href="#" class="login-btn">Invest Now</a>
+        </div>
+
+        <div class="option">
+            <h3>Customer Support</h3>
+            <p>Need help? Contact our support team.</p>
+            <a href="#" class="login-btn">Get Support</a>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 Asdfgh Bank. All Rights Reserved.
+    </footer>
+
+</div>
+
+<!-- JavaScript for URL Parameter Handling -->
+<!--<script>-->
+<!--  // Function to get URL parameters-->
+<!--  function getUrlParameter(name) {-->
+<!--      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');-->
+<!--      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');-->
+<!--      var results = regex.exec(location.search);-->
+<!--      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));-->
+<!--  }-->
+
+<!--  // Get username from URL and display it-->
+<!--  window.onload = function() {-->
+<!--      var username = getUrlParameter('name');-->
+<!--      if (username) {-->
+<!--          document.getElementById('welcomeUser').innerText = 'Hello, ' + username + '!';-->
+<!--      }-->
+<!--  };-->
+<!--</script>-->
+
+</body>
 </html>
