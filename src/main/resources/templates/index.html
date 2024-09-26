@@ -1,11 +1,110 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Insert title here</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supremo Bank - Home</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    header {
+        background-color: #003366; /* Dark Blue */
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+    }
+    h1 {
+        margin: 0;
+    }
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+    .login-form {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-top: 20px;
+        text-align: center;
+    }
+    input[type="text"], input[type="password"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .login-btn {
+        display: inline-block; /* Make it behave like a button */
+        background-color: #ffcc00; /* Yellow */
+        padding: 10px 20px;
+        color: #003366; /* Dark Blue */
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none; /* Remove underline */
+    }
+    .login-btn:hover {
+        background-color: #e6b800; /* Darker Yellow */
+    }
+    .bank-options {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    .option {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        flex-basis: calc(33% - 20px);
+        text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <p>Get your greeting <a href="/greeting">here</a></p>
+<header>
+  <h1>Welcome to Supremo Bank</h1>
+</header>
+
+<div class="container">
+  <div class="login-form">
+    <h2>Login to Your Account</h2>
+    <form action="#" method="post">
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <a href="/greeting" class="login-btn">Login</a> <!-- Changed to anchor tag -->
+    </form>
+    <p><a href="#" style="color:#003366;">Forgot Password?</a></p> <!-- Forgot password link -->
+  </div>
+
+  <div class="bank-options">
+    <div class="option">
+      <h3>Checking Accounts</h3>
+      <p>Manage your daily expenses with ease.</p>
+      <button>Learn More</button>
+    </div>
+
+    <div class="option">
+      <h3>Savings Accounts</h3>
+      <p>Save for your future with high interest rates.</p>
+      <button>Learn More</button>
+    </div>
+
+    <div class="option">
+      <h3>Loans</h3>
+      <p>Get the funds you need for personal or business needs.</p>
+      <button>Learn More</button>
+    </div>
+
+  </div>
+
+</div>
+
 </body>
 </html>
