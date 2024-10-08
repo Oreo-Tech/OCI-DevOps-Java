@@ -9,17 +9,18 @@ import org.slf4j.LoggerFactory;
 @Controller
 public class helloController {
 
+	private static final Logger logger = LoggerFactory.getLogger(helloController.class);
+
 	@RequestMapping("/hello")
 	public String index() {
+		logger.info("Handling GET request for /hello");
 		return "index";
 	}
 
 	@RequestMapping("/greeting")
 	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-
+		logger.info("Handling GET request for /greeting with name parameter: {}", name);
 		model.addAttribute("name", name);
-	return "greeting";
+		return "greeting";
 	}
-
-
 }
