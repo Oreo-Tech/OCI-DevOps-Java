@@ -48,4 +48,22 @@ public class helloController {
 	}
 
 
+	public static boolean validateIP(String IP){
+		//[Code-Assist (13)]
+String[] parts = IP.split("\\.");
+if (parts.length != 4) return false;
+for (String item : parts) {
+    try {
+        int number = Integer.parseInt(item);
+        if (number < 0 || number > 255) return false;
+    } catch (NumberFormatException e) {
+        return false;
+		//adding a comment
+    }
+}
+return true;
+
+
+	}
+
 }
